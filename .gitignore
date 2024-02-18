@@ -1,0 +1,23 @@
+### wp
+wp/*
+!wp/wp-content
+wp/wp-content/*
+!wp/wp-content/themes
+wp/wp-content/themes/index.php
+
+### htaccess
+.htaccess
+
+### macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+### Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+### node_modules
+node_modules/
+.vscode
