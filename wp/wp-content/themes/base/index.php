@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<?php $_SERVER["REQUEST_URI"] == "/" ? $og_type = "website" : $og_type =  "article";?>
+<?php $_SERVER["REQUEST_URI"] == "/" ? $og_type = "website" : $og_type =  "article"; ?>
 
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# <?php echo $og_type ;?>: http://ogp.me/ns/<?php echo $og_type ;?>#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# <?php echo $og_type; ?>: http://ogp.me/ns/<?php echo $og_type; ?>#">
   <meta charset="UTF-8">
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -12,7 +12,7 @@
 
   <!--=============== ▼DEFAULT OGP ===============-->
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:type" content="<?php echo $og_type ;?>">
+  <meta property="og:type" content="<?php echo $og_type; ?>">
   <meta property="og:site_name" content="">
   <meta property="og:url" content="">
   <meta property="og:title" content="タイトル">
@@ -33,6 +33,7 @@
 <body>
   <div id="top">
     <?php part("header"); ?>
+    test
 
     <main>
     </main><!-- /.main -->
