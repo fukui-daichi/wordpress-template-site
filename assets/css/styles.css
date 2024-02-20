@@ -432,12 +432,30 @@ html {
 }
 @media (max-width: px) {
   html {
-    font-size: calc(1000vw / 1920);
+    font-size: calc(1000vw / 1440);
   }
 }
 
 body {
   -webkit-text-size-adjust: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.top-page main .splide {
+  width: 125.6rem;
+}
+.top-page main .splide .splide__list .splide__slide figure {
+  position: relative;
+}
+.top-page main .splide .splide__list .splide__slide figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(128deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 /*# sourceMappingURL=styles.css.map*/
