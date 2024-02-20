@@ -3,27 +3,32 @@
 namespace {
   require_once __DIR__ . "/inc/admin.php";
   require_once __DIR__ . "/inc/post-types.php";
+  require_once __DIR__ . "/inc/reset-head.php";
 
-  function el($o, $k, $d=null){
-    if(is_array($o)){
+  function el($o, $k, $d = null)
+  {
+    if (is_array($o)) {
       return isset($o[$k]) ? $o[$k] : $d;
-    }else{
+    } else {
       return isset($o->$k) ? $o->$k : $d;
     }
   }
 
-  function view($view, $vars=[]){
-    if(file_exists(__DIR__ . "{$view}.php")){
+  function view($view, $vars = [])
+  {
+    if (file_exists(__DIR__ . "{$view}.php")) {
       extract($vars);
       include __DIR__ . "{$view}.php";
     }
   }
 
-  function part($part, $vars=[]){
+  function part($part, $vars = [])
+  {
     view("/parts/{$part}", $vars);
   }
 
-  function get_pagination(){
+  function get_pagination()
+  {
     global $wp_query;
 
     $current = el($wp_query->query, "paged", 1);

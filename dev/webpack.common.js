@@ -1,6 +1,7 @@
 const path = require("path"); // pathモジュールの読み込み
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 // production モード以外の場合、変数 enabledSourceMap は true
 // 本番環境のときはsoucemapを出力させない設定
@@ -72,6 +73,19 @@ module.exports = {
       // CSSの出力先
       filename: "[name].css", // 出力ファイル名を相対パスで指定（[name]にはentry:で指定したstylesが入る）
     }),
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 7777,
+        ui: false,
+        ghostMode: false,
+        files: ['../**/*.php','../**/*.html','../**/*.js'],
+        proxy: 'https://wordpress-template-site.local/',
+      },
+      {
+        reload: true
+      }
+    ),
   ],
   // ▼production モード以外の場合は source-map タイプのソースマップを出力
   devtool: enabledSourceMap ? "source-map" : "eval",

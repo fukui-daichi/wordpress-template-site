@@ -31,12 +31,11 @@
 </head>
 
 <body>
-  <div id="top">
+  <div class="top-page">
     <?php part("header"); ?>
-    test
 
     <main>
-    </main><!-- /.main -->
+    </main>
 
     <?php part("footer"); ?>
   </div>
