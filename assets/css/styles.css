@@ -401,7 +401,7 @@ th {
     display: none;
   }
 }
-@media screen and (min-width: 1px) and (max-width: px) {
+@media screen and (min-width: 1px) and (max-width: 19200px) {
   .sp:not(.pc) {
     display: none;
   }
@@ -413,8 +413,10 @@ th {
   --font-hiragino: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", "メイリオ", "Meiryo", sans-serif;
   --font-yu-gothic: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
   --font-yu-mincho: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  --font-hiragino-mincho: "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "游明朝体", "Yu Mincho", YuMincho, "MS P明朝", "MS PMincho", serif;
   --font-noto-sans: "Noto Sans JP", "メイリオ", Meiryo, sans-serif;
   --font-noto-serif: "Noto Serif JP", sans-serif;
+  --primary-color: #c9c7c0;
 }
 
 html {
@@ -430,7 +432,7 @@ html {
     font-size: 62.5%;
   }
 }
-@media (max-width: px) {
+@media (max-width: 19200px) {
   html {
     font-size: calc(1000vw / 1440);
   }
@@ -438,6 +440,7 @@ html {
 
 body {
   -webkit-text-size-adjust: 100%;
+  font-family: var(--font-hiragino-mincho);
 }
 
 img {
@@ -445,17 +448,97 @@ img {
   height: auto;
 }
 
-.top-page main .splide {
+.top-page main .mv {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.top-page main .mv h1 {
+  position: absolute;
+  top: 5.4rem;
+  left: 5.8rem;
+  z-index: 1;
+  width: 5.9rem;
+  aspect-ratio: 59/392;
+}
+.top-page main .mv .splide {
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
   width: 125.6rem;
 }
-.top-page main .splide .splide__list .splide__slide figure {
+.top-page main .mv .splide .splide__list .splide__slide figure {
   position: relative;
 }
-.top-page main .splide .splide__list .splide__slide figure::after {
+.top-page main .mv .splide .splide__list .splide__slide figure::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image: linear-gradient(128deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.8) 100%);
+}
+.top-page main .mv .splide .splide__list .splide__slide figure .caption-inner {
+  position: absolute;
+  top: 80%;
+  right: 5rem;
+  z-index: 1;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+.top-page main .mv .splide .splide__list .splide__slide figure .caption-inner .slide-caption {
+  color: #fff;
+  text-align: end;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+.top-page main .mv .splide .splide__list .splide__slide figure .caption-inner .slide-caption small {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.top-page main .mv .slide-counter {
+  position: absolute;
+  bottom: 16rem;
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.top-page main .mv .slide-counter .slide-divider {
+  display: block;
+  width: 100%;
+  height: 0.2rem;
+  rotate: -60deg;
+  background-color: #fff;
+}
+.top-page main .mv .bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  background-color: var(--primary-color);
+  filter: blur(4px);
+}
+.top-page main .mv .bg img {
+  grid-area: 1/-1;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.top-page main .mv .bg::after {
+  content: "";
+  grid-area: 1/-1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=styles.css.map*/
