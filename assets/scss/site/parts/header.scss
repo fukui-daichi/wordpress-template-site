@@ -2,6 +2,125 @@
 @use "../modules" as modules;
 
 .site-header {
-  @include f.mq(sp) {
+  position: absolute;
+  top: 0;
+  right: -21.2rem;
+  z-index: 10;
+  display: flex;
+  gap: 8rem;
+  transition: right var(--drawer-animation-speed);
+
+  .button-inner {
+    display: grid;
+    place-items: center;
+
+    .drawer-button {
+      position: relative;
+      z-index: 1;
+      width: 2rem;
+      height: 10rem;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0.6rem;
+        height: 3.2rem;
+        background-color: #fff;
+        transition: transform 0.6s;
+      }
+
+      &::before {
+        bottom: 0;
+        left: 0;
+        transform: translateY(-75%);
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+        transform: translateY(75%);
+      }
+
+      &:hover {
+        &::before {
+          transform: translateY(-50%);
+        }
+        &::after {
+          transform: translateY(50%);
+        }
+      }
+    }
+  }
+
+  .global-nav {
+    display: grid;
+    align-items: center;
+    width: 21.2rem;
+    min-height: 100vh;
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10rem;
+
+      li {
+        a {
+          display: block;
+          padding: 0 0 1rem 0.4rem;
+          border-bottom: 1px solid;
+          width: 100%;
+          color: #fff;
+          font-size: 2.2rem;
+          font-weight: 600;
+          letter-spacing: 0.4rem;
+          clip-path: polygon(0 0, 9.6% 0, 9.6% 100%, 0% 100%);
+          transition: clip-path 0.6s;
+
+          @include modules.hover {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          }
+        }
+
+        &:first-of-type {
+          a {
+            padding: 0 0 1rem 0.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.is-drawer-open {
+  .site-header {
+    right: 0;
+
+    .button-inner {
+      .drawer-button {
+        &::before {
+          transform: translateY(0);
+        }
+
+        &::after {
+          transform: translateY(0);
+        }
+
+        &:hover {
+          &::before {
+            transform: translateY(-50%);
+          }
+          &::after {
+            transform: translateY(50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include f.mq(sp) {
+  .site-header {
   }
 }

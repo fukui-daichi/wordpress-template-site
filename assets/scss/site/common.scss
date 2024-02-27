@@ -10,6 +10,17 @@
   --font-noto-sans: "Noto Sans JP", "メイリオ", Meiryo, sans-serif;
   --font-noto-serif: "Noto Serif JP", sans-serif;
   --primary-color: #c9c7c0;
+  --mv-padding-top: 180px;
+  --mv-padding-right: 180px;
+  --drawer-animation-speed: 0.8s;
+  --drawer-animation-delay: 0.4s;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --mv-padding-top: max(90px, 18rem);
+    --mv-padding-right: max(90px, 18rem);
+  }
 }
 
 html {
@@ -19,7 +30,7 @@ html {
 body {
   -webkit-text-size-adjust: 100%;
   // font-feature-settings: "palt";
-
+  overflow-x: hidden;
   font-family: var(--font-hiragino-mincho);
 }
 

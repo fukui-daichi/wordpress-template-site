@@ -31,7 +31,7 @@
 </head>
 
 <body>
-  <div class="top-page">
+  <div class="test-page">
     <?php part("header"); ?>
 
     <main>
@@ -58,24 +58,6 @@
                       </figcaption>
                     </div>
                   </figure>
-                  <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
-                </li>
-                <li class="splide__slide">
-                  <figure>
-                    <div class="image-inner">
-                      <img src="/assets/images/top/slide02.jpg" alt="" width="2508" height="1327" decoding="async">
-                    </div>
-                    <div class="caption-inner">
-                      <figcaption class="slide-caption js-slide-caption">
-                        <a href="#">
-                          Japanese Restaurant<br>
-                          Bettei-nakago
-                          <small>[ SHINSAIBASHI _ OSAKA ]</small>
-                        </a>
-                      </figcaption>
-                    </div>
-                  </figure>
-                  <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
                 </li>
               </ul>
             </div>
