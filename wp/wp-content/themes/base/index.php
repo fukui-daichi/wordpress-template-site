@@ -69,9 +69,61 @@
                     <div class="caption-inner">
                       <figcaption class="slide-caption js-slide-caption">
                         <a href="#">
-                          Japanese Restaurant<br>
-                          Bettei-nakago
-                          <small>[ SHINSAIBASHI _ OSAKA ]</small>
+                          Private Residence
+                          <small>[ASHIYA_ HYOGO]</small>
+                        </a>
+                      </figcaption>
+                    </div>
+                  </figure>
+                  <div class="rectangle"></div>
+                  <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
+                </li>
+                <li class="splide__slide">
+                  <figure>
+                    <div class="image-inner">
+                      <img src="/assets/images/top/slide03.jpg" alt="" width="2509" height="1328" decoding="async">
+                    </div>
+                    <div class="caption-inner">
+                      <figcaption class="slide-caption js-slide-caption">
+                        <a href="#">
+                          Acupuncture clinic<br>
+                          Private Residence
+                          <small>[ MATSUMUSHI _ OSAKA ]</small>
+                        </a>
+                      </figcaption>
+                    </div>
+                  </figure>
+                  <div class="rectangle"></div>
+                  <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
+                </li>
+                <li class="splide__slide">
+                  <figure>
+                    <div class="image-inner">
+                      <img src="/assets/images/top/slide04.jpg" alt="" width="2510" height="1327" decoding="async">
+                    </div>
+                    <div class="caption-inner">
+                      <figcaption class="slide-caption js-slide-caption">
+                        <a href="#">
+                          Lamb Restaurant<br>
+                          Fukushima Lambne
+                          <small>[ FUKUSHIMA _ OSAKA ]</small>
+                        </a>
+                      </figcaption>
+                    </div>
+                  </figure>
+                  <div class="rectangle"></div>
+                  <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
+                </li>
+                <li class="splide__slide">
+                  <figure>
+                    <div class="image-inner">
+                      <img src="/assets/images/top/slide05.jpg" alt="" width="2510" height="1327" decoding="async">
+                    </div>
+                    <div class="caption-inner">
+                      <figcaption class="slide-caption js-slide-caption">
+                        <a href="#">
+                          Karakusa Hotel grande
+                          <small>[ SHINOSAKA _ OSAKA ]</small>
                         </a>
                       </figcaption>
                     </div>

@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
+  // SPの判定
+  const isMobile = window.matchMedia("(max-width: 750px)").matches;
 
   // gsapの初期設定
   gsap.config({
@@ -133,6 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // テキストの回転アニメーション
   (() => {
+    const captionInnerEles = document.querySelectorAll('.caption-inner');
     const slideCaptions = document.querySelectorAll('.js-slide-caption');
     if (!slideCaptions.length) return;
 
@@ -161,7 +164,9 @@ window.addEventListener('DOMContentLoaded', () => {
           }
         });
       };
-      document.querySelector('.caption-inner').addEventListener('mouseenter', startAnimation);
+      captionInnerEles.forEach((captionInnerEle) => {
+        captionInnerEle.addEventListener('mouseenter', startAnimation);
+      });
     });
   })();
 
