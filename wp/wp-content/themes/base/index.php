@@ -58,6 +58,7 @@
                       </figcaption>
                     </div>
                   </figure>
+                  <div class="rectangle"></div>
                   <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
                 </li>
                 <li class="splide__slide">
@@ -75,6 +76,7 @@
                       </figcaption>
                     </div>
                   </figure>
+                  <div class="rectangle"></div>
                   <!-- <input type="range" class="slide-progress" min="0" max="1000" step="1" value="0"> -->
                 </li>
               </ul>

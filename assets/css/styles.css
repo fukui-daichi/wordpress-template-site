@@ -401,7 +401,7 @@ th {
     display: none;
   }
 }
-@media screen and (min-width: 1px) and (max-width: 19200px) {
+@media screen and (min-width: 1px) and (max-width: px) {
   .sp:not(.pc) {
     display: none;
   }
@@ -409,11 +409,21 @@ th {
     display: none;
   }
 }
+@font-face {
+  font-family: "hiragino-mincho";
+  src: url("/assets/font/hiragino-mincho-w3.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "hiragino-mincho";
+  src: url("/assets/font/hiragino-mincho-w6.woff") format("woff");
+  font-weight: 600;
+}
 :root {
   --font-hiragino: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", "メイリオ", "Meiryo", sans-serif;
   --font-yu-gothic: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
   --font-yu-mincho: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
-  --font-hiragino-mincho: "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "游明朝体", "Yu Mincho", YuMincho, "MS P明朝", "MS PMincho", serif;
+  --font-hiragino-mincho: hiragino-mincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "游明朝体", "Yu Mincho", YuMincho, "MS P明朝", "MS PMincho", serif;
   --font-noto-sans: "Noto Sans JP", "メイリオ", Meiryo, sans-serif;
   --font-noto-serif: "Noto Serif JP", sans-serif;
   --primary-color: #c9c7c0;
@@ -423,26 +433,20 @@ th {
   --drawer-animation-delay: 0.4s;
 }
 
-@media (max-width: 1440px) {
-  :root {
-    --mv-padding-top: max(90px, 18rem);
-    --mv-padding-right: max(90px, 18rem);
-  }
-}
 html {
-  font-size: 62.5%;
+  font-size: 0.6944444444vw;
 }
 @media (max-width: 750px) {
   html {
-    font-size: calc(1000vw / 750);
+    font-size: calc(1000vw / 390);
   }
 }
 @media (min-width: 751px) {
   html {
-    font-size: 62.5%;
+    font-size: 0.6944444444vw;
   }
 }
-@media (max-width: 19200px) {
+@media (max-width: px) {
   html {
     font-size: calc(1000vw / 1440);
   }
@@ -459,6 +463,19 @@ img {
   height: auto;
 }
 
+@media (max-width: 1440px) {
+  :root {
+    --mv-padding-top: max(90px, 18rem);
+    --mv-padding-right: max(90px, 18rem);
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 750px) {
+  :root {
+    --mv-padding-top: 6.6rem;
+    --mv-padding-right: 6.4rem;
+    --mv-padding-bottom: 6.6rem;
+  }
+}
 .top-page main .mv {
   position: relative;
   width: 100%;
@@ -503,7 +520,7 @@ img {
 .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .image-inner {
   width: 100%;
   height: 100%;
-  transform: scale(1.08);
+  scale: 1.1;
 }
 .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .image-inner img {
   height: 100%;
@@ -529,6 +546,10 @@ img {
   display: block;
   margin-top: 1rem;
   font-size: 1rem;
+}
+.top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide.is-active figure .image-inner {
+  animation: right-to-left 12s linear infinite;
+  animation-play-state: running;
 }
 .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide input {
   position: absolute;
@@ -586,6 +607,55 @@ body.is-drawer-open .top-page main .splide-wrapper {
   transform: translateX(-33.6rem);
 }
 
+.rectangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 141.4%;
+  height: 2px;
+  background-color: #fff;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+@media screen and (min-width: 0px) and (max-width: 750px) {
+  .top-page main .mv h1 {
+    top: 4rem;
+    left: 2rem;
+    width: 3.8rem;
+  }
+  .top-page main .mv .splide-wrapper {
+    padding: var(--mv-padding-top) var(--mv-padding-right) var(--mv-padding-bottom) 0;
+  }
+  .top-page main .mv .splide-wrapper .splide {
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% - var(--mv-padding-top) - var(--mv-padding-bottom));
+  }
+  .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .image-inner {
+    scale: 1.2;
+  }
+  .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .caption-inner {
+    top: 86%;
+    right: 2rem;
+  }
+  .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .caption-inner .slide-caption {
+    font-size: 1.3rem;
+  }
+  .top-page main .mv .splide-wrapper .splide .splide__track .splide__list .splide__slide figure .caption-inner .slide-caption small {
+    margin-top: 0.6rem;
+    font-size: 1rem;
+  }
+  .top-page main .mv .splide-wrapper .splide .slide-counter {
+    top: 66%;
+    right: 2rem;
+    gap: 2.6rem;
+    font-size: 1.5rem;
+  }
+  body.is-drawer-open .top-page main .splide-wrapper {
+    transform: translateX(-24.4rem);
+  }
+}
 .test-page main .mv {
   position: relative;
   width: 100%;
@@ -686,7 +756,7 @@ body.is-drawer-open .top-page main .splide-wrapper {
   right: -21.2rem;
   z-index: 10;
   display: flex;
-  gap: 8rem;
+  gap: min(80px, 8rem);
   transition: right var(--drawer-animation-speed);
 }
 .site-header .button-inner {
@@ -783,12 +853,62 @@ body.is-drawer-open .site-header .button-inner .drawer-button:hover::after {
   transform: translateY(50%);
 }
 
+@media screen and (min-width: 0px) and (max-width: 750px) {
+  .site-header {
+    right: -16rem;
+    gap: 2rem;
+  }
+  .site-header .button-inner .drawer-button {
+    position: relative;
+    z-index: 1;
+    width: 1.4rem;
+    height: 5.4rem;
+  }
+  .site-header .button-inner .drawer-button::before, .site-header .button-inner .drawer-button::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.3rem;
+    height: 1.6rem;
+    background-color: #fff;
+    transition: transform 0.6s;
+  }
+  .site-header .global-nav {
+    width: 16rem;
+  }
+  .site-header .global-nav > ul {
+    gap: 7.4rem;
+  }
+  .site-header .global-nav > ul li a {
+    font-size: 1.9rem;
+    -webkit-clip-path: initial;
+            clip-path: initial;
+  }
+}
 @keyframes zoom-in {
   from {
     transform: scale(1);
   }
   to {
     transform: scale(1.08);
+  }
+}
+@keyframes right-to-left {
+  from {
+    transform: translateX(4%);
+  }
+  to {
+    transform: translateX(-4%);
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 750px) {
+  @keyframes right-to-left {
+    from {
+      transform: translateX(8%);
+    }
+    to {
+      transform: translateX(-8%);
+    }
   }
 }
 

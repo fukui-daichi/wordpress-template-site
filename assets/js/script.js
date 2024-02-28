@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
       type: 'fade',
       autoplay: true,
       interval: 6000,
-      speed: 4000,
+      speed: 2500,
       arrows: false,
       pagination: false,
       pauseOnHover: false,
@@ -65,26 +65,70 @@ window.addEventListener('DOMContentLoaded', () => {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          const bodyHasClass = document.body.classList.contains('is-drawer-open');
-          if (bodyHasClass) {
-            // スライダーを一時停止
-            if (splide.Components.Autoplay) {
-              splide.Components.Autoplay.pause();
-            }
-          } else {
-            // スライダーを再開
-            if (splide.Components.Autoplay) {
-              splide.Components.Autoplay.play();
-            }
-          }
+          handleClassAttributeChange();
         }
       });
     });
+
+    function handleClassAttributeChange() {
+      const bodyHasClass = document.body.classList.contains('is-drawer-open');
+      const slideAnimationEles = document.querySelectorAll('.image-inner');
+      toggleSliderAndAnimations(bodyHasClass, slideAnimationEles);
+    }
+
+    function toggleSliderAndAnimations(isPaused, elements) {
+      const action = isPaused ? 'pause' : 'play';
+      const animationPlayState = isPaused ? 'paused' : 'running';
+
+      if (splide.Components.Autoplay) {
+        splide.Components.Autoplay[action]();
+      }
+
+      elements.forEach((element) => {
+        element.style.animationPlayState = animationPlayState;
+      });
+    }
 
     observer.observe(document.body, {
       attributes: true,
       attributeFilter: ['class']
     });
+  })();
+
+  // スライダーの斜め線
+  (() => {
+    const adjustLineAngleAndLength = () => {
+      // 全ての.rectangle要素を取得
+      const rectangles = document.querySelectorAll('.rectangle');
+
+      // 各.rectangle要素に対して処理を実行
+      rectangles.forEach(rectangle => {
+        const parent = rectangle.parentElement;
+
+        // 長方形の幅と高さを取得
+        const width = parent.offsetWidth;
+        const height = parent.offsetHeight;
+
+        // 斜線の角度を計算（アークタンジェントを使用）
+        const angleRad = Math.atan2(height, width);
+        const angleDeg = angleRad * (180 / Math.PI);
+
+        // 対角線の長さを計算（ピタゴラスの定理）
+        const diagonalLength = Math.sqrt(width * width + height * height);
+
+        // line要素のtransformプロパティを更新（角度）
+        rectangle.style.transform = `rotate(${-angleDeg}deg)`;
+
+        // line要素のwidthプロパティを更新（長さ）
+        rectangle.style.width = `${diagonalLength}px`;
+      });
+    }
+
+    // 初期調整
+    adjustLineAngleAndLength();
+
+    // ウィンドウのリサイズ時に調整を再適用
+    window.addEventListener('resize', adjustLineAngleAndLength);
   })();
 
   // テキストの回転アニメーション
@@ -99,7 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
       let isAnimating = false;
 
       const startAnimation = (i) => {
-        console.log(i);
         if (isAnimating) return;
         isAnimating = true;
 

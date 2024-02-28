@@ -5,14 +5,14 @@
 @function get-dynamic-font-size($id) {
   $base-width: map.get(v.$base-widths, $id);
   @if $base-width == null {
-    @return 62.5%;
+    @return calc(1000vw / 1440);
   }
 
   @return calc(1000vw / #{$base-width});
 }
 
 @mixin rem-base-font-size() {
-  font-size: 62.5%;
+  font-size: calc(1000vw / 1440);
 
   $prev-width: null;
   @each $id, $width in v.$break-points {

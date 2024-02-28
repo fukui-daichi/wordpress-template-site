@@ -7,7 +7,7 @@
   right: -21.2rem;
   z-index: 10;
   display: flex;
-  gap: 8rem;
+  gap: min(80px, 8rem);
   transition: right var(--drawer-animation-speed);
 
   .button-inner {
@@ -122,5 +122,42 @@ body.is-drawer-open {
 
 @include f.mq(sp) {
   .site-header {
+    right: -16rem;
+    gap: 2rem;
+
+    .button-inner {
+      .drawer-button {
+        position: relative;
+        z-index: 1;
+        width: 1.4rem;
+        height: 5.4rem;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 0.3rem;
+          height: 1.6rem;
+          background-color: #fff;
+          transition: transform 0.6s;
+        }
+      }
+    }
+
+    .global-nav {
+      width: 16rem;
+
+      > ul {
+        gap: 7.4rem;
+
+        li {
+          a {
+            font-size: 1.9rem;
+            clip-path: initial;
+          }
+        }
+      }
+    }
   }
 }

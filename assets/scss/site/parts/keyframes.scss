@@ -1,8 +1,31 @@
+@use "../../base/shortcut-functions" as f;
+@use "../modules" as modules;
+
 @keyframes zoom-in {
   from {
     transform: scale(1);
   }
   to {
     transform: scale(1.08);
+  }
+}
+
+@keyframes right-to-left {
+  from {
+    transform: translateX(4%);
+  }
+  to {
+    transform: translateX(-4%);
+  }
+}
+
+@include f.mq(sp) {
+  @keyframes right-to-left {
+    from {
+      transform: translateX(8%);
+    }
+    to {
+      transform: translateX(-8%);
+    }
   }
 }

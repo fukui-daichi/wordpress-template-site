@@ -3,12 +3,12 @@
 $break-points: (
   sp: 750,
   tb: null,
-  pc: 19200,
+  pc: null,
 ) !default;
 
 // rem変換時の基準のwidthを定義(デザインデータの横幅)
 $base-widths: (
-  sp: 750,
+  sp: 390,
   tb: null,
-  pc: 1440 // nullにすると1rem:1pxで固定,,,
+  pc: 1440 // nullにすると1rem:1pxで固定,,
 ) !default;
