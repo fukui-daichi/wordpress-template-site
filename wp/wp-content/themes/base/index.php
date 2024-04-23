@@ -32,6 +32,7 @@
 <body>
   <div class="top-page">
     <?php part("header"); ?>
+    <button>ボタン</button>
 
     <main>
     </main>

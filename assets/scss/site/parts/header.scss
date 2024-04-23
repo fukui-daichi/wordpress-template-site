@@ -1,2 +1,17 @@
 @use "../../base/shortcut-functions" as f;
 @use "../modules" as modules;
+
+.site-header {
+  position: fixed;
+  top: 100svh;
+  width: 100%;
+  height: 100svh;
+  background-color: aquamarine;
+}
+
+button {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1;
+}
