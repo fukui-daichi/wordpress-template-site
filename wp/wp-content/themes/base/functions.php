@@ -42,6 +42,8 @@ namespace {
       "has_next" => $current != $max
     ];
   }
+
+  load_theme_textdomain('base', get_template_directory() . '/languages');
 };
 
 namespace Site {

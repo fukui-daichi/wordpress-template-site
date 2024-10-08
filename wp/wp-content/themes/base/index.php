@@ -35,6 +35,8 @@
     <button>ボタン</button>
 
     <main>
+      <?php echo do_shortcode('[bogo]'); ?>
+      <p><?php esc_html_e('翻訳したいテキスト', 'base'); ?></p>
     </main>
 
     <?php part("footer"); ?>
